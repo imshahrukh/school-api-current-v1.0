@@ -1,0 +1,35 @@
+_Submissions
+{
+    member_id:
+    isSubmitted: true
+    date: 2018-11-30T19:00:00.000+00:00
+}
+_Memeber
+{
+    name:
+    village_id:
+    father_name:
+    P_1:
+    P_2:
+    date_of_join:
+}
+
+
+Table of date
+
+get all member from 2020 with month 8
+
+
+//get the year and the month
+    2018 want to seach this year    
+    add + to it and subtract to it
+    2017(dec)+monht(01)+date < year +(month)+ (1 date) < 2019+month(jan)+date(01)
+
+
+get all the user
+
+get all the IDs
+
+create an object and save to database (150 requests)
+
+
