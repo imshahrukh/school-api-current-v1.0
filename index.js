@@ -5,12 +5,6 @@ dotenv.config({ path: "./config.env" });
 const cors = require("cors");
 const morgan = require("morgan");
 
-// Routers
-
-const service_provider = require("./router/r_serviceProvider");
-const login = require("./router/r_login");
-const search = require("./router/r_search");
-
 // Middlwares
 const app = express();
 app.use(express.json());
@@ -32,9 +26,7 @@ mongoose
   .catch((er) => console.log(er));
 
 // call routers
-app.use("/v1", service_provider);
-app.use("/v1", login);
-app.use("/v1", search);
+app.use("/v1", require("./router/member_router"));
 
 // information
 app.listen(port, () => {
