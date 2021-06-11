@@ -1,4 +1,4 @@
-const Committe_Member = require("./../model/Member");
+const _MEMBER = require("../model/Member");
 
 // Methods
 // addMember
@@ -9,7 +9,8 @@ const Committe_Member = require("./../model/Member");
 
 exports.addMember = async function (req, res) {
   try {
-    const addMember = await Committe_Member.create(req.body);
+    const addMember = await _MEMBER.create(req.body);
+
     res.status(201).json({
       status: "success",
       data: {
@@ -27,8 +28,10 @@ exports.addMember = async function (req, res) {
 // get All memebers
 exports.getAllMembers = async function (req, res) {
   try {
-    var members = await Committe_Member.find();
+    var members = await _MEMBER.find();
+
     const tot_mem = Object.keys(members).length;
+
     res.status(201).json({
       status: "success",
       total: tot_mem,
@@ -46,7 +49,8 @@ exports.getAllMembers = async function (req, res) {
 
 exports.getMemeberByID = async function (req, res) {
   try {
-    var members = await Committe_Member.findById(req.params.id);
+    var members = await _MEMBER.findById(req.params.id);
+
     res.status(201).json({
       tatus: "success",
       data: {
@@ -63,11 +67,9 @@ exports.getMemeberByID = async function (req, res) {
 
 exports.updateMemberByID = async function (req, res) {
   try {
-    var members = await Committe_Member.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    var members = await _MEMBER.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
 
     res.status(201).json({
       status: "success",

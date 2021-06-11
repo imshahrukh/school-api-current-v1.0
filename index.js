@@ -4,10 +4,12 @@ const mongoose = require("mongoose");
 dotenv.config({ path: "./config.env" });
 const cors = require("cors");
 const morgan = require("morgan");
+const { use } = require("./router/member_router");
 
 // Middlwares
 const app = express();
 app.use(express.json());
+
 app.use(cors());
 app.use(morgan("tiny"));
 
@@ -26,8 +28,11 @@ mongoose
   .catch((er) => console.log(er));
 
 // call routers
+// localhost:3000/v1/member
 app.use("/v1", require("./router/member_router"));
 
+// localhost:3000/v1/book
+app.use("/v1", require("./router/login_router"));
 // information
 app.listen(port, () => {
   console.log("server Activited");
