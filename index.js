@@ -31,7 +31,7 @@ mongoose
 // localhost:3000/v1/member
 app.use("/v1", require("./router/member_router"));
 
-// localhost:3000/v1/book
+// localhost:3000/v1/login
 app.use("/v1", require("./router/login_router"));
 // information
 app.listen(port, () => {
