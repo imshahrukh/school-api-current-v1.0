@@ -1,18 +1,22 @@
 import { Schema, model } from "mongoose";
 
-const Member = new Schema({
-  first_name: {
+const Admin = new Schema({
+  password: {
     type: String,
     required: true,
   },
-  last_name: {
+  name: {
     type: String,
     required: true,
   },
-  gender: {
+  designation: {
+    type: String,
+    required: true,
+  },
+  adminId: {
     type: String,
     required: true,
   },
 });
 
-export default model("Member", Member);
+export default model("Admin", Admin);
