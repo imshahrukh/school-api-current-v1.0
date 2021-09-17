@@ -38,5 +38,4 @@ const Visit = new mongoose.Schema({
     ref: "Guard",
   },
 });
-
-export default model("Visit", Visit);
+module.exports = mongoose.model("Visit", Visit);

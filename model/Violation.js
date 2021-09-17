@@ -30,5 +30,4 @@ const Violation = new mongoose.Schema({
     required: true,
   },
 });
-
-export default model("Violation", Violation);
+module.exports = mongoose.model("Violation", Violation);
