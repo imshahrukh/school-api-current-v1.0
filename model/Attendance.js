@@ -1,15 +1,15 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Attendance = new Schema({
-  // Approved,Not-Approved
+const Attendance = new mongoose.Schema({
+  // Approved,Not-Approved,Leave
   status: {
     type: String,
     required: true,
   },
 
   RegNo: {
-    type: SchemaTypes.ObjectId,
-    ref: "Student",
+    type: String,
+    required: true,
   },
 
   date: {
@@ -26,5 +26,4 @@ const Attendance = new Schema({
     required: true,
   },
 });
-
-export default model("Attendance", Attendance);
+module.exports = mongoose.model("Attendance", Attendance);

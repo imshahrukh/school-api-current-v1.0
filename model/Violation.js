@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Violation = new Schema({
+const Violation = new mongoose.Schema({
   violations: [
     {
       type: String,
@@ -16,7 +16,7 @@ const Violation = new Schema({
     required: true,
   },
   RegNo: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Student",
   },
 

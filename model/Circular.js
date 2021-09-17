@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Circular = new Schema({
+const Circular = new mongoose.Schema({
   // Pending,Paid
   classes: [
     {
@@ -13,7 +13,7 @@ const Circular = new Schema({
     required: true,
   },
   issuedBy: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Admin",
   },
 
@@ -27,5 +27,4 @@ const Circular = new Schema({
     required: true,
   },
 });
-
-export default model("Circular", Circular);
+module.exports = mongoose.model("Circular", Circular);

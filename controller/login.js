@@ -1,4 +1,4 @@
-const _MEMBER = require("../model/Member");
+const _MEMBER = require("../model/Member").default;
 
 // get All memebers
 exports.findMemeber = async function (req, res) {

@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Student = new Schema({
+const Student = new mongoose.Schema({
   RegNo: {
     type: String,
     required: true,
@@ -13,15 +13,14 @@ const Student = new Schema({
     type: String,
     required: true,
   },
-  parentId: {
-    type: SchemaTypes.ObjectId,
-    ref: "Parent",
-  },
+  // parentId: {
+  //   type: SchemaTypes.ObjectId,
+  //   ref: "Parent",
+  // },
 
   photo: {
     type: String,
     required: true,
   },
 });
-
-export default model("Student", Student);
+module.exports = mongoose.model("Student", Student);

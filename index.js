@@ -28,12 +28,21 @@ mongoose
   .catch((er) => console.log(er));
 
 // call routers
+// Smart School
+app.use("/v1", require("./router/SAttendanceRouter"));
+app.use("/v1", require("./router/SStudentRouter"));
+
 // localhost:3000/v1/member
 app.use("/v1", require("./router/member_router"));
-
 // localhost:3000/v1/login
 app.use("/v1", require("./router/login_router"));
 // information
+app.get("/", (req, res) => {
+  console.log("data");
+  res.status(200).json({
+    message: "Api Working",
+  });
+});
 app.listen(port, () => {
   console.log("server Activited");
 });

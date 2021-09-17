@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const LeaveApplication = new Schema({
+const LeaveApplication = new mongoose.Schema({
   // Approved,Not-Approved
   status: {
     type: String,
@@ -8,7 +8,7 @@ const LeaveApplication = new Schema({
   },
 
   RegNo: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Student",
   },
 
@@ -44,5 +44,4 @@ const LeaveApplication = new Schema({
     },
   ],
 });
-
-export default model("LeaveApplication", LeaveApplication);
+module.exports = mongoose.model("LeaveApplication", LeaveApplication);

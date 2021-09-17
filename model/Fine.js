@@ -1,9 +1,9 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Fine = new Schema({
+const Fine = new mongoose.Schema({
   violations: [
     {
-      type: SchemaTypes.ObjectId,
+      type: mongoose.SchemaTypes.ObjectId,
       ref: "Violation",
     },
   ],
@@ -17,7 +17,7 @@ const Fine = new Schema({
     required: true,
   },
   RegNo: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Student",
   },
 
@@ -31,5 +31,4 @@ const Fine = new Schema({
     required: true,
   },
 });
-
-export default model("Fine", Fine);
+module.exports = mongoose.model("Fine", Fine);

@@ -1,4 +1,4 @@
-const _MEMBER = require("../model/Member");
+const _MEMBER = require("../model/Member").default;
 
 // Methods
 // addMember

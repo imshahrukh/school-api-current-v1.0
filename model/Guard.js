@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Guard = new Schema({
+const Guard = new mongoose.Schema({
   // Pending,Paid
 
   guardId: {
@@ -30,5 +30,4 @@ const Guard = new Schema({
     required: true,
   },
 });
-
-export default model("Guard", Guard);
+module.exports = mongoose.model("Guard", Guard);

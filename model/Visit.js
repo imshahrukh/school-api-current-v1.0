@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Visit = new Schema({
+const Visit = new mongoose.Schema({
   // Pending,Paid
 
   visitorName: {
@@ -34,7 +34,7 @@ const Visit = new Schema({
     required: true,
   },
   registeredBy: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Guard",
   },
 });

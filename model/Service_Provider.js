@@ -67,5 +67,4 @@ const ServiceProvider = new mongoose.Schema({
     type: Number,
   },
 });
-
 module.exports = mongoose.model("ServiceProvider", ServiceProvider);

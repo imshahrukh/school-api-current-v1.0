@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Complaint = new Schema({
+const Complaint = new mongoose.Schema({
   // Approved,Not-Approved
   status: {
     type: String,
@@ -8,7 +8,7 @@ const Complaint = new Schema({
   },
 
   RegNo: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Student",
   },
 
@@ -22,7 +22,7 @@ const Complaint = new Schema({
     required: true,
   },
   filedBy: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Teacher",
   },
   description: {
@@ -38,5 +38,4 @@ const Complaint = new Schema({
     required: true,
   },
 });
-
-export default model("Complaint", Complaint);
+module.exports = mongoose.model("Complaint", Complaint);

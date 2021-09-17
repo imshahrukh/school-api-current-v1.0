@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const HomeWork = new Schema({
+const HomeWork = new mongoose.Schema({
   // Pending,Paid
   class: {
     type: String,
@@ -11,7 +11,7 @@ const HomeWork = new Schema({
     required: true,
   },
   teacherId: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Teacher",
   },
   homeWokDescription: {
@@ -29,5 +29,4 @@ const HomeWork = new Schema({
     required: true,
   },
 });
-
-export default model("HomeWork", HomeWork);
+module.exports = mongoose.model("HomeWork", HomeWork);

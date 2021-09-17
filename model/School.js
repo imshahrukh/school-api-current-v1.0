@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const School = new Schema({
+const School = new mongoose.Schema({
   // Pending,Paid
   contact: [
     {
@@ -23,5 +23,4 @@ const School = new Schema({
     required: true,
   },
 });
-
-export default model("School", School);
+module.exports = mongoose.model("School", School);

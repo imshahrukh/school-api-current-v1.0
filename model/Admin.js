@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Admin = new Schema({
+const Admin = new mongoose.Schema({
   password: {
     type: String,
     required: true,
@@ -18,5 +18,4 @@ const Admin = new Schema({
     required: true,
   },
 });
-
-export default model("Admin", Admin);
+module.exports = mongoose.model("Admin", Admin);

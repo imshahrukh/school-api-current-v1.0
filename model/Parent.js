@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const Parent = new Schema({
+const Parent = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -10,7 +10,7 @@ const Parent = new Schema({
     required: true,
   },
   RegNo: {
-    type: SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Student",
   },
   visitingPin: {
@@ -30,5 +30,4 @@ const Parent = new Schema({
     required: true,
   },
 });
-
-export default model("Parent", Parent);
+module.exports = mongoose.model("Parent", Parent);
