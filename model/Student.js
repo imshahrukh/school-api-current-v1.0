@@ -1,26 +1,47 @@
 const mongoose = require("mongoose");
 
 const Student = new mongoose.Schema({
-  RegNo: {
+  stdName: {
     type: String,
     required: true,
   },
-  class: {
+  stdFather: {
     type: String,
     required: true,
   },
-  name: {
+  stdEmail: {
     type: String,
     required: true,
   },
-  // parentId: {
-  //   type: SchemaTypes.ObjectId,
-  //   ref: "Parent",
-  // },
 
-  photo: {
+  stdPhoneNumber: {
     type: String,
     required: true,
+  },
+
+  stdBatch: {
+    type: String,
+    required: true,
+  },
+  stdDesignation: {
+    type: String,
+    required: true,
+  },
+  stdSemester: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  stdAddress: {
+    type: String,
+    required: true,
+  },
+  stdPassword: {
+    type: String,
+    require: true,
   },
 });
 module.exports = mongoose.model("Student", Student);

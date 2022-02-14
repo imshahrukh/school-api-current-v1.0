@@ -1,5 +1,5 @@
 const express = require("express");
-const studentController = require("./../controller/SStduentController");
+const studentController = require("../old-controller/SStduentController");
 const studentRouter = express.Router();
 // POST
 // localhost:8000/v1/member

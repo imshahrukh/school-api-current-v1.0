@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 dotenv.config({ path: "./config.env" });
 const cors = require("cors");
 const morgan = require("morgan");
-const { use } = require("./router/member_router");
 
 // Middlwares
 const app = express();
@@ -29,13 +28,13 @@ mongoose
 
 // call routers
 // Smart School
-app.use("/v1", require("./router/SAttendanceRouter"));
-app.use("/v1", require("./router/SStudentRouter"));
+// app.use("/v1", require("./router/SAttendanceRouter"));
+// app.use("/v1", require("./router/SStudentRouter"));
 
 // localhost:3000/v1/member
-app.use("/v1", require("./router/member_router"));
+// app.use("/v1", require("./router/member_router"));
 // localhost:3000/v1/login
-app.use("/v1", require("./router/login_router"));
+// app.use("/v1", require("./router/login_router"));
 // information
 app.get("/", (req, res) => {
   console.log("data");

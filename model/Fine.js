@@ -1,13 +1,6 @@
 const mongoose = require("mongoose");
 
 const Fine = new mongoose.Schema({
-  violations: [
-    {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: "Violation",
-    },
-  ],
-  // Pending,Paid
   status: {
     type: String,
     required: true,
