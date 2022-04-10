@@ -5,11 +5,11 @@ const Student = new mongoose.Schema({
     type: String,
     required: true,
   },
-  stdFather: {
+  stdID: {
     type: String,
     required: true,
   },
-  stdEmail: {
+  stdFather: {
     type: String,
     required: true,
   },
@@ -20,9 +20,18 @@ const Student = new mongoose.Schema({
   },
 
   stdBatch: {
-    type: String,
-    required: true,
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Batch",
   },
+  stdProgram: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Program",
+  },
+  stdSection: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Section",
+  },
+
   stdDesignation: {
     type: String,
     required: true,
@@ -39,9 +48,9 @@ const Student = new mongoose.Schema({
     type: String,
     required: true,
   },
-  stdPassword: {
-    type: String,
-    require: true,
+  memberID: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Member",
   },
 });
 module.exports = mongoose.model("Student", Student);

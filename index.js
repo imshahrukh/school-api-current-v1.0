@@ -26,16 +26,22 @@ mongoose
   .then(console.log("Database connected..."))
   .catch((er) => console.log(er));
 
-// call routers
-// Smart School
-// app.use("/v1", require("./router/SAttendanceRouter"));
-// app.use("/v1", require("./router/SStudentRouter"));
+app.use("/v1", require("./router/member"));
+app.use("/v1", require("./router/admin"));
+app.use("/v1", require("./router/student"));
+app.use("/v1", require("./router/announcemment"));
+app.use("/v1", require("./router/scholership"));
+app.use("/v1", require("./router/teacher"));
+app.use("/v1", require("./router/program"));
+app.use("/v1", require("./router/batch"));
+app.use("/v1", require("./router/selectedcourse"));
+app.use("/v1", require("./router/department"));
+app.use("/v1", require("./router/scholership"));
+app.use("/v1", require("./router/section"));
+app.use("/v1", require("./router/topic"));
+app.use("/v1", require("./router/courses"));
+app.use("/v1", require("./router/attendance"));
 
-// localhost:3000/v1/member
-// app.use("/v1", require("./router/member_router"));
-// localhost:3000/v1/login
-// app.use("/v1", require("./router/login_router"));
-// information
 app.get("/", (req, res) => {
   console.log("data");
   res.status(200).json({

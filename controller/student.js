@@ -2,6 +2,8 @@ const _STUDENT = require("./../model/student");
 
 exports.addStudent = async function (req, res) {
   try {
+    console.log("student");
+    console.log(req.body);
     const student = await _STUDENT.create(req.body);
 
     res.status(201).json({
@@ -41,7 +43,12 @@ exports.getAllStudent = async function (req, res) {
 
 exports.getStudentByID = async function (req, res) {
   try {
-    var student = await _STUDENT.findById(req.params.id);
+    var student = await _STUDENT
+      .findById(req.params.id)
+      .populate("stdSection")
+      .populate("stdBatch")
+      .populate("stdProgram")
+      .populate("memberID");
 
     res.status(201).json({
       tatus: "success",

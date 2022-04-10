@@ -1,20 +1,13 @@
-const _MEMBER = require("../model/Member").default;
+const _TOPIC = require("../model/topic");
 
-// Methods
-// addMember
-// getAllMembers
-// getMemeberByID
-// updateMemberByID
-// addMember
-
-exports.addMember = async function (req, res) {
+exports.addTopic = async function (req, res) {
   try {
-    const addMember = await _MEMBER.create(req.body);
+    const Topic = await _TOPIC.create(req.body);
 
     res.status(201).json({
       status: "success",
       data: {
-        member: addMember,
+        topic: Topic,
       },
     });
   } catch (e) {
@@ -25,36 +18,33 @@ exports.addMember = async function (req, res) {
   }
 };
 
-// get All memebers
-exports.getAllMembers = async function (req, res) {
+exports.getTopic = async function (req, res) {
   try {
-    var members = await _MEMBER.find();
+    var query = require("url").parse(req.url, true).query;
+    console.log(query);
 
-    const tot_mem = Object.keys(members).length;
-
+    const Topic = await _TOPIC.find(query);
     res.status(201).json({
       status: "success",
-      total: tot_mem,
       data: {
-        member: members,
+        topic: Topic,
       },
     });
   } catch (e) {
     res.status(400).json({
       status: "fail",
-      message: "Data fail to add in the Database........",
+      message: e,
     });
   }
 };
 
-exports.getMemeberByID = async function (req, res) {
+exports.getTopicByID = async function (req, res) {
   try {
-    var members = await _MEMBER.findById(req.params.id);
-
+    var Topic = await _TOPIC.findById(req.params.id);
     res.status(201).json({
       tatus: "success",
       data: {
-        member: members,
+        topic: Topic,
       },
     });
   } catch (e) {
@@ -65,16 +55,16 @@ exports.getMemeberByID = async function (req, res) {
   }
 };
 
-exports.updateMemberByID = async function (req, res) {
+exports.updateTopicByID = async function (req, res) {
   try {
-    var members = await _MEMBER.findByIdAndUpdate(req.params.id, req.body, {
+    var Topic = await _TOPIC.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
 
     res.status(201).json({
       status: "success",
       data: {
-        member: members,
+        topic: Topic,
       },
     });
   } catch (e) {
