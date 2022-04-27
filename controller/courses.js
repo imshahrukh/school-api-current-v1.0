@@ -2,8 +2,29 @@ const _COURSE = require("../model/courses");
 
 exports.addCourse = async function (req, res) {
   try {
+    console.log(req.body);
     const Course = await _COURSE.create(req.body);
 
+    res.status(201).json({
+      status: "success",
+      data: {
+        course: Course,
+      },
+    });
+  } catch (e) {
+    res.status(400).json({
+      status: "fail",
+      message: e,
+    });
+  }
+};
+
+exports.getCourseByCourseCode = async function (req, res) {
+  try {
+    var query = require("url").parse(req.url, true).query;
+    console.log(query);
+
+    const Course = await _COURSE.find({ query });
     res.status(201).json({
       status: "success",
       data: {
@@ -38,7 +59,10 @@ exports.getCourse = async function (req, res) {
 
 exports.getCourseByID = async function (req, res) {
   try {
-    var Course = await _COURSE.findById(req.params.id);
+    var Course = await _COURSE
+      .findById(req.params.id)
+      .populate("batch")
+      .populate("program");
     res.status(201).json({
       tatus: "success",
       data: {

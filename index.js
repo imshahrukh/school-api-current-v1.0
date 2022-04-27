@@ -41,6 +41,8 @@ app.use("/v1", require("./router/section"));
 app.use("/v1", require("./router/topic"));
 app.use("/v1", require("./router/courses"));
 app.use("/v1", require("./router/attendance"));
+app.use("/v1", require("./router/timeTable"));
+app.use("/v1", require("./router/registration-status"));
 
 app.get("/", (req, res) => {
   console.log("data");

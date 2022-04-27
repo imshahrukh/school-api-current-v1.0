@@ -7,6 +7,8 @@ student_R
   .post(student_C.addStudent)
   .get(student_C.getAllStudent);
 
+student_R.route("/student/search").get(student_C.getStudentByRegNo);
+
 student_R
   .route("/student/:id")
   .get(student_C.getStudentByID)

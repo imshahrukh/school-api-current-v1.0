@@ -24,9 +24,13 @@ exports.addAttendance = async function (req, res) {
 exports.getAttendance = async function (req, res) {
   try {
     var query = require("url").parse(req.url, true).query;
-    console.log(query);
+    // console.log(query);
 
-    const Attendance = await _ATTENDANCE.find(query).populate("student");
+    const Attendance = await _ATTENDANCE
+      .find(query)
+      .populate("student")
+      .populate("course")
+      .populate("topic");
 
     res.status(201).json({
       status: "success",
@@ -74,6 +78,7 @@ exports.getAttendanceInPercent = async function (req, res) {
       status: "success",
       data: {
         attendance: attendanceArray,
+        // hours:
       },
     });
   } catch (e) {
@@ -116,6 +121,7 @@ exports.getStudentCourseAndAttendance = async function (req, res) {
     const student_courses = await _SELECTEDCOURSE
       .find(query)
       .populate("course_id");
+    console.log(student_courses);
     const topics = await _TOPIC.find({ topic: query.course });
 
     let attendace = [];
@@ -131,6 +137,7 @@ exports.getStudentCourseAndAttendance = async function (req, res) {
         attendance: studentAttendance.length / topics.length,
         course_name: student_courses[i].course_id.course_title,
         course: student_courses[i].course_id._id,
+        hours: student_courses[i].course_id.credit_hour,
       });
     }
     // get get coursesfrom Selected courses
@@ -157,6 +164,7 @@ exports.getStudentCourseAndAttendance = async function (req, res) {
       status: "success",
       data: {
         student_attendance: attendace,
+
         // attendance: student_courses,
         // topic: topics,
       },

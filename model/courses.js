@@ -13,8 +13,24 @@ const Courses = new mongoose.Schema({
     type: String,
     required: true,
   },
+  semester: {
+    type: String,
+    required: true,
+  },
+  batch: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Batch",
+  },
+  program: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Program",
+  },
   active: {
     type: Boolean,
+    required: true,
+  },
+  type: {
+    type: String,
     required: true,
   },
 });

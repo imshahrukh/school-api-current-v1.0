@@ -63,6 +63,32 @@ exports.getStudentByID = async function (req, res) {
     });
   }
 };
+// sp10-75
+
+exports.getStudentByRegNo = async function (req, res) {
+  try {
+    var query = require("url").parse(req.url, true).query;
+    console.log(query);
+    var student = await _STUDENT
+      .find(query)
+      .populate("stdSection")
+      .populate("stdBatch")
+      .populate("stdProgram")
+      .populate("memberID");
+
+    res.status(201).json({
+      tatus: "success",
+      data: {
+        student: student,
+      },
+    });
+  } catch (e) {
+    res.status(400).json({
+      status: "fail",
+      message: "Data fail to add in the Database........",
+    });
+  }
+};
 
 exports.updateStudentByID = async function (req, res) {
   try {
